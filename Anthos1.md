@@ -6,39 +6,39 @@ Anthos Bare Metal (ABM), a vital component of the Anthos portfolio, revolutioniz
 
 The deployment options of Anthos can be primarily categorized into the following three categories:
 
-- ## Hybrid cluster deployment
+- #### Hybrid cluster deployment
 
 Enterprises have built their infrastructure on-premises by employing virtualization technologies like VMware or having a host of physical servers due to various compliance and regulatory requirements. Currently, such enterprises are looking towards being more agile and delivering modern applications quickly. Based on what technologies the customer uses and where they are in their cloud journey, the following 2 Anthos offerings can be adopted:
 
 - Anthos on VMware
 - Anthos on Bare Metal
 
-![Hybrid cluster](https://github.com/lakshmi1231/Images/raw/main/Images/Hybrid%20cluster%201.png)
+![Hybrid cluster](./Images/Hybrid%20cluster%201.png)
 
-- ***Edge Deployment***
+- #### Edge Deployment
 
 This deployment is for customers who are looking to build and deploy cloud-native applications that require data and compute to be located closer to end-users to provide real-time, ultra-low latency, and immersive experiences or on resource-constrained hardware. They can deploy Anthos applications directly on their hardware infrastructure.
 
-![Edge deployment](https://github.com/lakshmi1231/Images/raw/main/Images/edge%201.png)
+![Edge deployment](./Images/edge%201.png)
 
-- ***Admin-User (Multi) Cluster Deployment***
+- #### Admin-User (Multi) Cluster Deployment
 
 This is a full-blown model where enterprises would like to take so that they can be cloud-agnostic due to various drivers that include cost models, customer affinity towards a particular cloud vendor, availability of cloud regions, disaster recovery strategy, or compliance and regulations. Even though multicloud support may not be a current priority for your enterprises, enterprises should adopt cloud-native applications and principles, so it can help transition to a multicloud environment seamlessly based on future requirements. In this way, enterprises can be multicloud ready.
 
-![Admin-user](https://github.com/lakshmi1231/Images/raw/main/Images/admin%20user%202.png)
+![Admin-user](./Images/admin%20user%202.png)
 
 Anthos clusters on the bare metal support multiple deployment strategies to accommodate varying requirements for resource footprint, availability, and isolation:
 
-- **User Clusters**: Containerized workloads are executed in a Kubernetes cluster called a user cluster. It consists of worker nodes and control plane nodes. Bare metal Anthos clusters can support one or more user clusters. Worker nodes that run user workloads must be present in either one or more user clusters.
+- User Clusters: Containerized workloads are executed in a Kubernetes cluster called a user cluster. It consists of worker nodes and control plane nodes. Bare metal Anthos clusters can support one or more user clusters. Worker nodes that run user workloads must be present in either one or more user clusters.
 
-- **Admin Clusters**: A Kubernetes cluster that oversees one or more user clusters is known as an admin cluster. The admin cluster can carry out the following tasks: Construct user clusters, Boost user clusters, Refresh user clusters, and get rid of user clusters.
+- Admin Clusters: A Kubernetes cluster that oversees one or more user clusters is known as an admin cluster. The admin cluster can carry out the following tasks: Construct user clusters, Boost user clusters, Refresh user clusters, and get rid of user clusters.
 
 
 # 2. Architecture
 
 In this section, we provide an overview of the architecture for deploying Anthos Bare Metal for CQASP deployment. The architecture diagram below illustrates the key components and their interactions in an Anthos Bare Metal DEPLOYMENT.
 
-![Architecture](https://github.com/lakshmi1231/Images/raw/main/Images/Architecture%202.png)
+![Architecture](./Images/Architecture%202.png)
 
 ## 2.1. Key Components and Interactions
 
@@ -240,7 +240,7 @@ sudo bmctl create cluster -c cluster1
 ```
 Running the commands from the Terraform output starts setting up a new Anthos cluster. This includes checking the initialization state of the nodes, creating the admin and user clusters and also registering the cluster with Google Cloud using Connect. The whole setup can take up to 15 minutes. You see the following output as the cluster is being created:
 
- ![Architecture](https://github.com/lakshmi1231/Images/raw/main/Images/3.3%20b.png)
+ !(./Images/3.3%20b.png)
 
 #### c.	Verify and interacting with the Baremetal cluster.
 You can find your cluster's kubeconfig file on the admin machine in the bmctl-workspace directory. To verify your deployment, complete the following steps. SSH into the admin host (if you are not already inside it):
@@ -258,7 +258,7 @@ kubectl get nodes
 
 You should see the nodes of the cluster printed, like the output below:
 
-![Architecture](https://github.com/lakshmi1231/Images/raw/main/Images/3.3%20c.png)
+!(./Images/3.3%20c.png)
 
 ## 3.2. Logging into anthos cluster
 
@@ -269,7 +269,7 @@ To log in, access the GKE Console and choose your preferred method of authentica
 
 There are multiple authentication options available, but for this demonstration, we will create a Kubernetes Service Account (KSA) for logging in. Please note that we are using the cluster-admin role for this test
 
-![Architecture](https://github.com/lakshmi1231/Images/raw/main/Images/3.4%20a.png)
+!(./Images/3.4%20a.png)
 
 ```bash
 apiVersion: v1
@@ -300,15 +300,15 @@ kubectl describe -n kube-system secret anthos-token-<generated id>
 ```
 #### Step 2: Input the token on the console
 
-![Architecture](https://github.com/lakshmi1231/Images/raw/main/Images/3.4%20b.png)
+!(./Images/3.4%20b.png)
 
 Now the information is seen on GCP console (GKE UI)
 
-![Architecture](https://github.com/lakshmi1231/Images/raw/main/Images/3.4%20bb.png)
+!(./Images/3.4%20bb.png)
 
 Also it's provided on Anthos UI
 
-![Architecture](https://github.com/lakshmi1231/Images/raw/main/Images/3.4%20bbb.png)
+!(./Images/3.4%20bbb.png)
 
 The cluster is now ready. With the kubeconfig one can proceed to deploy workloads and use it as kubernetes cluster.
 
@@ -381,7 +381,7 @@ Istio on Anthos Bare Metal provides all the benefits of open-source Istio, witho
 -	Automatic metrics, logs, and traces for all traffic within a cluster, ingress and egress.
 -	Secure service-to-service communication in a cluster with strong identity-based authentication and authorization.
 
-### 3.4.2 Istio - Install instructions
+### 3.4.2 Istio - Install instructions  
 
 #### Step 1: Connect to cluster
 
@@ -391,16 +391,221 @@ Istio on Anthos Bare Metal provides all the benefits of open-source Istio, witho
 curl -L https://istio.io/downloadIstio | sh -
 cd istio-<<VERSION>>
 ```
+!(./Images/3.4.2%20a.png)
+
 #### Step 3: Install istio with the demo configuration profile
 
 ```bash
 ./bin/istioctl install --set profile=demo -y
 ```
+!(./Images/3.4.2%20b.png)
 
 #### Step 4: VERIFy the installation and ensure the istio components are running without any errors
 ```bash
 #verify the pod status
 kubectl get pods -n istio-system
 ```
+
+## 3.5	GCP load balancer integration
+
+By default, the services created by Istio will not be accessible publicly and will not have the right API’s for every cloud provider. Henceforth the GCP load balancer integration with Istio is a manual activity.
+
+The terraform code which is deployed as per Sec 2.4 will deploy the load balancers in Google Cloud with a Public IP. Note down the public IP allocated.
+
+Steps for the same are as below
+
+#### Step 1: Create a patch file with reserved Public IP
+
+```bash
+INGRESS_LB_IP=x.x.x.x
+cat <<EOF > /tmp/ingress-patch.yaml
+spec:
+  externalIPs:
+    - ${INGRESS_LB_IP}
+EOF
+```
+
+#### Step 2: Update the istio-ingress service with the patch, so it has the reserved public IP
+
+```bash
+echo "[+] Patching the istio-ingress service with the external ip: $INGRESS_LB_IP"
+kubectl patch --namespace istio-system service/istio-ingressgateway --patch-file /tmp/ingress-patch.yaml
+```
+
+#### Step 3: Verify Ingress to see if the load balancer still have public IP
+
+#### Step 4: Create gateway and associated virtual services for deploying CQASP using the below yaml file.
+
+```bash
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: cqasp-gateway-ssl
+  namespace: cqasp-system
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - hosts:
+    - keycloak.istio.demo.cequence.ai
+    - edge.istio.demo.cequence.ai
+    - api.istio.demo.cequence.ai
+    - policy-engine.istio.demo.cequence.ai
+    - ui.istio.demo.cequence.ai
+    port:
+      name: http
+      number: 80
+      protocol: HTTP
+  - hosts:
+    - keycloak.istio.demo.cequence.ai
+    - edge.istio.demo.cequence.ai
+    - api.istio.demo.cequence.ai
+    - policy-engine.istio.demo.cequence.ai
+    - ui.istio.demo.cequence.ai
+    port:
+      name: https
+      number: 443
+      protocol: HTTPS
+    tls:
+      credentialName: demo-crt
+      mode: SIMPLE
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: keycloak-istio-ssl
+  namespace: cqasp-system
+spec:
+  gateways:
+  - cqasp-gateway-ssl
+  hosts:
+  - keycloak.istio.demo.cequence.ai
+  http:
+  - route:
+    - destination:
+        host: keycloak.cqasp-system.svc.cluster.local
+        port:
+          number: 80
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: api-edge-istio-ssl
+  namespace: cqasp-system
+spec:
+  gateways:
+  - cqasp-gateway-ssl
+  hosts:
+  - api-edge.istio.demo.cequence.ai
+  http:
+  - route:
+    - destination:
+        host: api-edge.cqasp-system.svc.cluster.local
+        port:
+          number: 80
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: api-gateway-istio-ssl
+  namespace: cqasp-system
+spec:
+  gateways:
+  - cqasp-gateway-all
+  hosts:
+  - api-gateway.istio.demo.cequence.ai
+  http:
+  - route:
+    - destination:
+        host: api-gateway.cqasp-system.svc.cluster.local
+        port:
+          number: 80
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: ui-istio-ssl
+  namespace: cqasp-system
+spec:
+  gateways:
+  - cqasp-gateway-ssl
+  hosts:
+  - ui.istio.demo.cequence.ai
+  http:
+  - route:
+    - destination:
+        host: ui.cqasp-system.svc.cluster.local
+        port:
+          number: 80
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: policy-engine-istio
+  namespace: cqasp-system
+spec:
+  gateways:
+  - cqasp-gateway-ssl
+  hosts:
+  - policy-engine.istio.demo.cequence.ai
+  http:
+  - route:
+    - destination:
+        host: policy-engine.cqasp-system.svc.cluster.local
+        port:
+          number: 80
+```
+
+# 4. CQASP Installation
+
+The Cequence ASP platform deployment requires the following tools to be installed on the machine from where the installation is being performed:
+-	Kubectl
+-	Helm
+-	Openssl (optional)
+
+** openssl genrsa -out myprivate.key 2048
+openssl req -new -key myprivate.key -out mycsr.csr
+openssl x509 -req -days 365 -in mycsr.csr -signkey myprivate.key -out mycertificate.crt
+kubectl create secret tls  secret-name --cert=mycertificate.crt --key=myprivate.key **
+
+The steps to install the Cequence ASP platform are as follows:
+
+#### Step 1: Add necessary helm repos
+
+```bash
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo add strimzi https://strimzi.io/charts/
+helm repo add elasticsearch https://helm.elastic.co
+helm repo add apache-airflow https://airflow.apache.org
+helm repo add cequence https://cequence.gitlab.io/helm-charts
+helm repo update
+```
+
+#### Step 2: Create Cequence namespace
+
+```bash
+kubectl create ns cqasp-system
+```
+
+#### Step 3: Install Strimzi Kafka operator
+
+```bash
+helm upgrade --install strimzi strimzi/strimzi-kafka-operator -n kafka-system --create-namespace --version 0.34.0 --set watchAnyNamespace=true --debug
+```
+
+#### Step 4: Install ECK Elasticsearch Operator
+
+```bash
+helm install eck elastic/eck-operator -n elastic-system --create-namespace --version 2.4.0 --set watchAnyNamespace=true --debug
+```
+
+#### Step 5: Create postgres credentials
+
+```bash
+kubectl create secret generic postgres-credentials --from-literal=postgres-password=6b0a31ca-44a7-4476-84bf-5c50d91b53aa --from-literal=password=6b0a31ca-44a7-4476-84bf-5c50d91b53aa -n cqasp-system
+```
+
+
+
 
 
