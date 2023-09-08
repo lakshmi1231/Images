@@ -2,7 +2,7 @@
 
 Anthos Bare Metal (ABM), a vital component of the Anthos portfolio, revolutionizes hybrid cloud and workload management. Unlike traditional cloud platforms, Anthos Bare Metal enables seamless workload management across diverse environments, including Google Kubernetes Engine (GKE), third-party clouds such as AWS and Azure, and private clusters.
 
-![Anthos architecture](./Images/Anthos%20architecture%201.png)
+![Anthos architecture](./Images1/Anthos%20architecture%201.png)
 
 The deployment options of Anthos can be primarily categorized into the following three categories:
 
@@ -13,19 +13,19 @@ Enterprises have built their infrastructure on-premises by employing virtualizat
 - Anthos on VMware
 - Anthos on Bare Metal
 
-![Hybrid cluster](./Images/Hybrid%20cluster%201.png)
+![Hybrid cluster](./Images1/Hybrid%20cluster%201.png)
 
 - #### Edge Deployment
 
 This deployment is for customers who are looking to build and deploy cloud-native applications that require data and compute to be located closer to end-users to provide real-time, ultra-low latency, and immersive experiences or on resource-constrained hardware. They can deploy Anthos applications directly on their hardware infrastructure.
 
-![Edge deployment](./Images/edge%201.png)
+![Edge deployment](./Images1/edge%201.png)
 
 - #### Admin-User (Multi) Cluster Deployment
 
 This is a full-blown model where enterprises would like to take so that they can be cloud-agnostic due to various drivers that include cost models, customer affinity towards a particular cloud vendor, availability of cloud regions, disaster recovery strategy, or compliance and regulations. Even though multicloud support may not be a current priority for your enterprises, enterprises should adopt cloud-native applications and principles, so it can help transition to a multicloud environment seamlessly based on future requirements. In this way, enterprises can be multicloud ready.
 
-![Admin-user](./Images/admin%20user%202.png)
+![Admin-user](./Images1/admin%20user%202.png)
 
 Anthos clusters on the bare metal support multiple deployment strategies to accommodate varying requirements for resource footprint, availability, and isolation:
 
@@ -38,7 +38,7 @@ Anthos clusters on the bare metal support multiple deployment strategies to acco
 
 In this section, we provide an overview of the architecture for deploying Anthos Bare Metal for CQASP deployment. The architecture diagram below illustrates the key components and their interactions in an Anthos Bare Metal DEPLOYMENT.
 
-![Architecture](./Images/Architecture%202.png)
+![Architecture](./Images1/Architecture%202.png)
 
 ## 2.1. Key Components and Interactions
 
@@ -240,7 +240,7 @@ sudo bmctl create cluster -c cluster1
 ```
 Running the commands from the Terraform output starts setting up a new Anthos cluster. This includes checking the initialization state of the nodes, creating the admin and user clusters and also registering the cluster with Google Cloud using Connect. The whole setup can take up to 15 minutes. You see the following output as the cluster is being created:
 
- !(./Images/3.3%20b.png)
+ !(./Images1/3.3%20b.png)
 
 #### c.	Verify and interacting with the Baremetal cluster.
 You can find your cluster's kubeconfig file on the admin machine in the bmctl-workspace directory. To verify your deployment, complete the following steps. SSH into the admin host (if you are not already inside it):
@@ -258,7 +258,7 @@ kubectl get nodes
 
 You should see the nodes of the cluster printed, like the output below:
 
-!(./Images/3.3%20c.png)
+!(./Images1/3.3%20c.png)
 
 ## 3.2. Logging into anthos cluster
 
@@ -269,7 +269,7 @@ To log in, access the GKE Console and choose your preferred method of authentica
 
 There are multiple authentication options available, but for this demonstration, we will create a Kubernetes Service Account (KSA) for logging in. Please note that we are using the cluster-admin role for this test
 
-!(./Images/3.4%20a.png)
+!(./Images1/3.4%20a.png)
 
 ```bash
 apiVersion: v1
@@ -300,15 +300,15 @@ kubectl describe -n kube-system secret anthos-token-<generated id>
 ```
 #### Step 2: Input the token on the console
 
-!(./Images/3.4%20b.png)
+!(./Images1/3.4%20b.png)
 
 Now the information is seen on GCP console (GKE UI)
 
-!(./Images/3.4%20bb.png)
+!(./Images1/3.4%20bb.png)
 
 Also it's provided on Anthos UI
 
-!(./Images/3.4%20bbb.png)
+!(./Images1/3.4%20bbb.png)
 
 The cluster is now ready. With the kubeconfig one can proceed to deploy workloads and use it as kubernetes cluster.
 
@@ -391,14 +391,14 @@ Istio on Anthos Bare Metal provides all the benefits of open-source Istio, witho
 curl -L https://istio.io/downloadIstio | sh -
 cd istio-<<VERSION>>
 ```
-!(./Images/3.4.2%20a.png)
+!(./Images1/3.4.2%20a.png)
 
 #### Step 3: Install istio with the demo configuration profile
 
 ```bash
 ./bin/istioctl install --set profile=demo -y
 ```
-!(./Images/3.4.2%20b.png)
+!(./Images1/3.4.2%20b.png)
 
 #### Step 4: VERIFy the installation and ensure the istio components are running without any errors
 ```bash
