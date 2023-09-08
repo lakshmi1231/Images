@@ -187,9 +187,6 @@ Navigate to the cloned repository directory:
 
 ```bash
 terraform init
-terraform plan
-terraform apply
-tail -f ./terraform.log
 ```
 
 #### Step 4: Initialize terraform
