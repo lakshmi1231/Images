@@ -10,8 +10,8 @@ The deployment options of Anthos can be primarily categorized into the following
 
 Enterprises have built their infrastructure on-premises by employing virtualization technologies like VMware or having a host of physical servers due to various compliance and regulatory requirements. Currently, such enterprises are looking towards being more agile and delivering modern applications quickly. Based on what technologies the customer uses and where they are in their cloud journey, the following 2 Anthos offerings can be adopted:
 
-- Anthos on VMware
-- Anthos on Bare Metal
+   - Anthos on VMware
+   - Anthos on Bare Metal
 
 ![Hybrid cluster](./Images1/Hybrid%20cluster%201.png)
 
