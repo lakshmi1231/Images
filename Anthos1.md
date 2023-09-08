@@ -397,7 +397,7 @@ cd istio-<<VERSION>>
 ```
 ![Itios install](./Images1/3.4.2%20b.png)
 
-#### Step 4: VERIFy the installation and ensure the istio components are running without any errors
+#### Step 4: Verify the installation and ensure the istio components are running without any errors
 ```bash
 #verify the pod status
 kubectl get pods -n istio-system
