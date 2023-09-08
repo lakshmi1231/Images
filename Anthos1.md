@@ -224,13 +224,13 @@ In this section, we cover the installation of Anthos Bare Metal on GCP (Google C
 
 After the Terraform, execution completes you are ready to deploy an Anthos cluster.
 
-#### a. SSH into admin host
+#### Step 1: SSH into admin host
 
 ```bash
 gcloud compute ssh tfadmin@cluster1-ceq-ws0-001 --project=<YOUR_PROJECT> --zone=<YOUR_ZONE>
 ```
 
-#### b.	Install the Anthos cluster on the provisioned Compute Engine VM based bare metal infrastructure.
+#### Step 2:	Install the Anthos cluster on the provisioned Compute Engine VM based bare metal infrastructure.
 
 ```bash
 sudo ./run_initialization_checks.sh && \
@@ -240,9 +240,9 @@ sudo bmctl create cluster -c cluster1
 ```
 Running the commands from the Terraform output starts setting up a new Anthos cluster. This includes checking the initialization state of the nodes, creating the admin and user clusters and also registering the cluster with Google Cloud using Connect. The whole setup can take up to 15 minutes. You see the following output as the cluster is being created:
 
- !(./Images1/3.3%20b.png)
+ ![Anthos deployment](./Images1/3.3%20b.png)
 
-#### c.	Verify and interacting with the Baremetal cluster.
+#### Step 3:	Verify and interacting with the Baremetal cluster.
 You can find your cluster's kubeconfig file on the admin machine in the bmctl-workspace directory. To verify your deployment, complete the following steps. SSH into the admin host (if you are not already inside it):
 ```bash
 gcloud compute ssh tfadmin@cluster1-abm-ws0-001 --project=<YOUR_PROJECT> --zone=<YOUR_ZONE>
@@ -258,7 +258,7 @@ kubectl get nodes
 
 You should see the nodes of the cluster printed, like the output below:
 
-!(./Images1/3.3%20c.png)
+![Anthos deployment](./Images1/3.3%20c.png)
 
 ## 3.2. Logging into anthos cluster
 
@@ -269,7 +269,7 @@ To log in, access the GKE Console and choose your preferred method of authentica
 
 There are multiple authentication options available, but for this demonstration, we will create a Kubernetes Service Account (KSA) for logging in. Please note that we are using the cluster-admin role for this test
 
-!(./Images1/3.4%20a.png)
+![Anthos deployment](./Images1/3.4%20a.png)
 
 ```bash
 apiVersion: v1
@@ -398,7 +398,7 @@ cd istio-<<VERSION>>
 ```bash
 ./bin/istioctl install --set profile=demo -y
 ```
-!(./Images1/3.4.2%20b.png)
+![Itios install](./Images1/3.4.2%20b.png)
 
 #### Step 4: VERIFy the installation and ensure the istio components are running without any errors
 ```bash
@@ -605,7 +605,14 @@ helm install eck elastic/eck-operator -n elastic-system --create-namespace --ver
 kubectl create secret generic postgres-credentials --from-literal=postgres-password=6b0a31ca-44a7-4476-84bf-5c50d91b53aa --from-literal=password=6b0a31ca-44a7-4476-84bf-5c50d91b53aa -n cqasp-system
 ```
 
+# 5. Conclusion
 
+In conclusion, this document provides an overview of Anthos Bare Metal (ABM) and its deployment, focusing on the Cequence Application Security Platform (CQASP). ABM offers flexible deployment options, and its architecture includes control plane nodes and worker nodes. Terraform variables are essential for ABM deployment.
+The installation guide covers ABM setup and CQASP deployment. Istio Service Mesh simplifies service management, and GCP Load Balancer integration ensures public access.
+In the CQASP installation section, we outline the steps and tools needed for deployment.
+This document equips you with a comprehensive understanding of ABM and CQASP deployment, enhancing workload management and security in a hybrid cloud environment.
+
+-** For any queries reach out to anil@cequence.ai or jacob@cequence.ai **
 
 
 
