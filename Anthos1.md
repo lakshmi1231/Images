@@ -1,4 +1,4 @@
-# Introduction
+# 1. Introduction
 
 Anthos Bare Metal (ABM), a vital component of the Anthos portfolio, revolutionizes hybrid cloud and workload management. Unlike traditional cloud platforms, Anthos Bare Metal enables seamless workload management across diverse environments, including Google Kubernetes Engine (GKE), third-party clouds such as AWS and Azure, and private clusters.
 
