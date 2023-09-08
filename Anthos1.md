@@ -315,52 +315,52 @@ To set up Anthos Bare Metal effectively, you'll need a Google Cloud Service Acco
 
 #### Step 1: Access the Google Cloud Console
 
-Open your web browser and navigate to the Google Cloud Console.
+_Open your web browser and navigate to the Google Cloud Console._
 
 #### Step 2: Choose your project
 
-In the upper-right corner of the console, ensure that you have selected the Google Cloud project where you intend to deploy Anthos Bare Metal. If not, click on the project dropdown and choose your project
+_In the upper-right corner of the console, ensure that you have selected the Google Cloud project where you intend to deploy Anthos Bare Metal. If not, click on the project dropdown and choose your project_
 
 #### Step 3: Open the Service Accounts Page
 
-In the left-hand navigation pane, go to "IAM & Admin" and select "Service accounts."
+_In the left-hand navigation pane, go to "IAM & Admin" and select "Service accounts."_
 
 #### Step 4: Create a new service account
 
-Click the "+ CREATE SERVICE ACCOUNT" button at the top of the page.
+_Click the "+ CREATE SERVICE ACCOUNT" button at the top of the page._
 
 #### Step 5: Configure the Service Account
 
-Provide a name for your service account, e.g., "AnthosServiceAccount."
+_Provide a name for your service account, e.g., "AnthosServiceAccount."
 Optionally, provide a description.
 Choose the role for your service account. To deploy Anthos Bare Metal, the service account should have sufficient permissions, such as "Editor" or custom roles with necessary privileges.
-Click the "Continue" button.
+Click the "Continue" button._
 
 
 #### Step 7: Grant User Access (Optional)
 
-You can assign users or groups access to this service account if needed. This step is optional.
+_You can assign users or groups access to this service account if needed. This step is optional._
 
 #### Step 8: Add Service Account Key
 
-Click on the "Keys" tab.
-Click the "+ CREATE KEY" button.
+_Click on the "Keys" tab.
+Click the "+ CREATE KEY" button._
 
 #### Step 9: Choose Key Type
 
-Select the key type: JSON or P12. For Anthos Bare Metal, choose JSON as it's more commonly used.
+_Select the key type: JSON or P12. For Anthos Bare Metal, choose JSON as it's more commonly used._
 
 #### Step 10: Create the Key
 
-Click the "CREATE" button. A JSON key file will be generated and downloaded to your computer.
+_Click the "CREATE" button. A JSON key file will be generated and downloaded to your computer._
 
 #### Step 11: Save the Key Securely
 
-Ensure that you save the JSON key file in a secure location, as it contains sensitive information required for Anthos Bare Metal deployment.
+_Ensure that you save the JSON key file in a secure location, as it contains sensitive information required for Anthos Bare Metal deployment._
 
 #### Step 12: Configure Anthos with the Key
 
-During the Anthos Bare Metal deployment (as explained in section 3.3), you'll need to provide the path to this JSON key file. Make sure you have the key file accessible when running the Terraform configuration.
+_During the Anthos Bare Metal deployment (as explained in section 3.3), you'll need to provide the path to this JSON key file. Make sure you have the key file accessible when running the Terraform configuration._
 
 This completes the process of creating a Google Cloud Service Account and generating a key for Anthos Bare Metal deployment.
 
