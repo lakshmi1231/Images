@@ -300,15 +300,15 @@ kubectl describe -n kube-system secret anthos-token-<generated id>
 ```
 #### Step 2: Input the token on the console
 
-!(./Images1/3.4%20b.png)
+![Cluster login](./Images1/3.4%20b.png)
 
 Now the information is seen on GCP console (GKE UI)
 
-!(./Images1/3.4%20bb.png)
+![Cluster login](./Images1/3.4%20bb.png)
 
 Also it's provided on Anthos UI
 
-!(./Images1/3.4%20bbb.png)
+![Cluster login](./Images1/3.4%20bbb.png)
 
 The cluster is now ready. With the kubeconfig one can proceed to deploy workloads and use it as kubernetes cluster.
 
