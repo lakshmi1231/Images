@@ -391,7 +391,7 @@ Istio on Anthos Bare Metal provides all the benefits of open-source Istio, witho
 curl -L https://istio.io/downloadIstio | sh -
 cd istio-<<VERSION>>
 ```
-!(./Images1/3.4.2%20a.png)
+![Itios install](./Images1/3.4.2%20a.png)
 
 #### Step 3: Install istio with the demo configuration profile
 
