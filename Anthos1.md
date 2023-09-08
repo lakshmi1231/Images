@@ -609,7 +609,7 @@ The installation guide covers ABM setup and CQASP deployment. Istio Service Mesh
 In the CQASP installation section, we outline the steps and tools needed for deployment.
 This document equips you with a comprehensive understanding of ABM and CQASP deployment, enhancing workload management and security in a hybrid cloud environment.
 
--** For any queries reach out to anil@cequence.ai or jacob@cequence.ai **
+_For any queries reach out to anil@cequence.ai or jacob@cequence.ai_
 
 
 
